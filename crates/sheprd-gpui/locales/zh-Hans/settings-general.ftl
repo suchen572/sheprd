@@ -1,0 +1,30 @@
+settings-general-section-interface = 界面
+settings-general-section-features = 功能
+settings-general-section-clipboard = 剪贴板
+settings-general-section-worktrees = 工作树
+settings-general-section-browser-skill = 浏览器技能
+settings-general-section-startup = 启动
+settings-general-section-updates = 更新
+
+settings-general-language-system = 系统（{ $language }）
+settings-general-language-unavailable = { $tag }，以 { $language } 显示
+
+settings-general-menu-bar = 显示菜单栏
+settings-general-menu-bar-description = 窗口顶部的一行菜单。隐藏时，按 F10 会在窗口上方打开菜单，“切换菜单栏”可恢复菜单行。
+settings-general-window-controls = 显示窗口控件
+settings-general-window-controls-description = 在菜单栏中绘制最小化、最大化和关闭按钮；菜单栏隐藏时则绘制在标题栏中。请在窗口管理器中禁用服务端装饰，以免出现双重标题栏。
+settings-general-chat-layout = 聊天布局
+settings-general-chat-layout-description = 聊天视图绘制消息和输入框的方式：时间线、类似 Claude 应用的气泡、Claude Code 的终端界面、文档、每轮一张卡片、“信息”气泡，或类似 iA Writer 的单个简洁栏。聊天标题栏中的按钮也可以在它们之间切换。
+settings-general-chat-launcher = 聊天启动器
+settings-general-chat-launcher-description = 标签栏为每个已安装的智能体提供一键聊天入口的位置。无论放在哪里，“+”都仍会打开终端标签页。
+settings-general-chat-glide = 平滑聊天滚动
+settings-general-chat-glide-description = 回复的新文本流式传入时，平滑滚动到该处。关闭时，每收到一段内容，聊天都会直接跳转过去。
+settings-general-chat-full-width = 全宽聊天
+settings-general-chat-full-width-description = 将所有可用空间用于消息和输入框。
+settings-general-chat-width = 聊天宽度
+settings-general-chat-width-description = 以逻辑像素为单位的最大阅读宽度。窄窗口会自动适应。
+settings-general-browser-skill-missing = 未安装。
+settings-general-browser-skill-install = 安装
+settings-general-browser-skill-remove = 移除
+settings-general-launch-at-login-disabled = 已在 Windows 的“设置 > 应用 > 启动”中关闭。请在那里重新开启。
+settings-general-error-launch-at-login = 登录时启动：{ $error }

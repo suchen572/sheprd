@@ -94,6 +94,9 @@ ShowLanguageDialog=auto
 ; language Setup ran in.
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl,installer\en-US.isl"
+; Inno Setup installs no Chinese translation of its own, so inno\ keeps its
+; unofficial one; Default.isl first covers any message it has not caught up on.
+Name: "chinesesimplified"; MessagesFile: "compiler:Default.isl,inno\ChineseSimplified.isl,installer\zh-Hans.isl"
 
 [Tasks]
 Name: "addtopath"; Description: "{cm:AddToPath}"

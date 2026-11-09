@@ -1,0 +1,12 @@
+error-pane-move-unsupported-host = 移动窗格需要本地会话或 SSH 主机；不支持自定义套接字端点。
+error-pane-move-development-session = 开发（--dev）会话不支持移动窗格。
+error-pane-move-invalid-id = 无法将 Herdr ID { $id } 传给 herdr CLI。
+error-pane-move-unchanged-same-tab = 该窗格已在那个标签页中。
+error-pane-move-unchanged-zoomed-tab = 已放大的标签页无法移入或移出窗格。请取消放大后重试。
+error-pane-move-unchanged-other = Herdr 未移动该窗格。
+error-pane-move-refused = 无法移动窗格：{ $error }
+error-pane-move-missing-cli = 无法移动窗格：在此主机上找不到 herdr CLI。
+error-pane-move-script = 无法移动窗格：{ $error }
+error-pane-move-decode = 无法移动窗格：herdr 返回了意外的输出。
+error-pane-move-partial-tab-move = 无法将窗格 { $pane } 移入新建的标签页：{ $error }
+error-pane-move-rename = 已移动标签页，但无法保留其名称：{ $error }

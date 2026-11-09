@@ -1,0 +1,15 @@
+core-terminals-open-workspace = 请先打开一个工作区
+core-terminals-host-without-core = 此主机未安装 herdr-core，因此该标签页将在主机的 Herdr 中运行
+core-terminals-too-many-tabs = 打开的标签页过多
+core-terminals-connecting = 正在连接 herdr-core...
+core-terminals-unavailable = herdr-core 不可用：{ $reason }
+core-terminals-start-failed = 无法启动终端：{ $reason }
+core-terminals-exited = 已退出，退出码 { $code }
+core-terminals-ended = 已结束
+core-terminals-state-blocked = 等待中
+core-terminals-state-done = 已完成
+core-terminals-state-idle = 空闲
+core-terminals-state-working = 工作中
+core-terminals-mirror-needs-pane = 请先点击一个要镜像的 Herdr 2 窗格
+core-terminals-watching = 观看中
+core-terminals-sidebar = Herdr 2

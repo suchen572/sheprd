@@ -1,0 +1,20 @@
+settings-indicators-status-working = 工作中
+settings-indicators-status-blocked = 等待中
+settings-indicators-status-done = 已完成
+settings-indicators-status-idle = 空闲
+settings-indicators-status-unknown = 未知
+
+settings-indicators-set-dots = 圆点
+settings-indicators-set-dots-description = 小圆点；工作时显示带旋转弧线的圆环。
+settings-indicators-set-solid = 实心
+settings-indicators-set-solid-description = 带镂空标记的实心圆；空闲时显示新月。
+settings-indicators-set-outline = 轮廓
+settings-indicators-set-outline-description = 相同标记的轮廓版本，带有旋转的开口弧线。
+settings-indicators-set-tiles = 方块
+settings-indicators-set-tiles-description = 每个标记都位于以其状态颜色着色的方块上。
+settings-indicators-set-wave = 波浪
+settings-indicators-set-wave-description = Superset 的波浪网格；每种状态都绘制在其单元格中。
+settings-indicators-set-braille = 盲文
+settings-indicators-set-braille-description = 盲文点阵；等待中时逐点填满再清空。
+settings-indicators-set-orca = Orca
+settings-indicators-set-orca-description = Orca 的步进圆环、问号气泡和带圆环的对勾。

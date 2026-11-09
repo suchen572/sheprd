@@ -1,0 +1,56 @@
+github-menu-host-own = { $device } 上的拉取请求使用此账户。
+github-menu-host-main = { $device } 上的拉取请求使用你的主账户 @{ $login }。登录即可为此设备使用其他账户。
+github-menu-host-signed-out = 登录以查看 { $device } 上的拉取请求。
+github-menu-connected-cli = 已通过 GitHub CLI 连接
+github-menu-connected = 已连接
+github-menu-rate-limited = GitHub 已对 @{ $login } 进行速率限制。将在 { $minutes } 分钟后重试。
+github-menu-quota = 最近报告的 GraphQL 用量：已使用 { $used } / { $limit } 点 · 剩余 { $remaining } 点。与使用此账户的其他应用共享。
+github-menu-copy-code-step = 1. 复制你的一次性代码
+github-menu-copied = 已复制
+github-menu-copy-code = 复制代码
+github-menu-paste-code-step = 2. 打开 GitHub 并粘贴代码
+github-menu-checking = 正在检查 GitHub 账户...
+github-menu-ready = 你的账户已可用于查询拉取请求。
+github-menu-cli-available = 此电脑上的 GitHub CLI 已登录。可以使用其会话，或在浏览器中安全登录。
+github-menu-sign-in-note = 在浏览器中安全登录以查看拉取请求。无需 GitHub CLI。
+github-menu-approve-key = { $label } (R)
+github-menu-open = 打开 GitHub (O)
+github-menu-use-cli = 使用 GitHub CLI 身份验证 (G)
+github-menu-try-again = 重试 (S)
+github-menu-use-another = 使用其他账户 (S)
+github-menu-sign-in-browser = 使用浏览器登录 (S)
+github-menu-sign-in = 登录 (S)
+github-menu-use-token = 使用令牌 (T)
+github-menu-add-account = 添加账户 (A)
+github-menu-save-token = 保存令牌 (Enter)
+github-menu-cancel-token = 取消 (Esc)
+github-menu-remove-account = 移除账户 (D)
+github-menu-stop-cli = 停止使用 GitHub CLI (D)
+github-menu-sign-out = 退出登录 (D)
+github-menu-cli-no-repo-scope = GitHub CLI 的令牌缺少 repo 权限范围，因此无法访问私有仓库。请运行 `gh auth refresh --scopes repo`。
+github-menu-cli-session = 本次应用会话使用 GitHub CLI 的登录。此平台没有凭据存储，无法记住此选择。
+github-menu-cli-keeps-token = 此令牌由 GitHub CLI 保管；Sheprd 不保存任何令牌。执行 `gh auth logout` 后，此应用会在下次检查时退出登录。
+
+github-menu-too-many-accounts = 最多可添加 { $count } 个额外的 GitHub 账户。
+github-menu-main-account = 主账户
+github-menu-new-account = 新账户
+github-menu-add-account-chip = + 添加账户 (A)
+github-menu-account-note = 登录一个能看到你的主账户看不到的仓库的账户，例如 Enterprise Managed User。它会读取其登录名及其组织拥有的仓库；其余仓库仍使用你的主账户。Enterprise Managed User 无法安装 Sheprd 的 GitHub App，因此请为其使用个人访问令牌。
+github-menu-account-owners = 读取 { $owners } 拥有的仓库。其他所有内容使用你的主账户。可在 [github] accounts 中添加所有者。
+github-menu-token-label = 个人访问令牌
+github-menu-token-help = 以此账户身份在 github.com/settings/tokens 创建令牌：具有 repo 和 read:org 权限的经典令牌，或具有 Contents、Issues 和 Pull requests 读取权限的细粒度令牌。令牌会经 GitHub 校验，然后像浏览器登录一样保存。
+
+github-menu-install-title = 安装 GitHub App
+github-menu-install-body = Sheprd 的 GitHub App 未为 @{ $login } 或任何组织安装，因此只会加载公共仓库。请安装它并选择它可以读取的仓库。
+github-menu-install-custom-body = 设为 oauth_client_id 的 GitHub App 未为 @{ $login } 或任何组织安装，因此只会加载公共仓库。请从该 App 的 GitHub 页面安装。
+github-menu-install-link = 在 GitHub 上安装
+github-menu-approve-title = 批准 GitHub App 权限
+github-menu-approve-body = { $count ->
+       *[other] Sheprd 的 GitHub App 请求新的权限。在获得批准之前，那里的私有仓库无法显示检查、创建拉取请求、评论或合并。
+    }
+github-menu-approve-own = 为 @{ $owner } 批准
+github-menu-approve-organization = 为 { $owner } 批准（需要其所有者操作）
+github-menu-attention-toast = { $body } 请从标题栏中的头像打开 GitHub 页面。
+github-menu-more-owners = GitHub 上还有 { $count } 个。
+github-menu-recheck-note = 打开此页面后不久，Sheprd 会再次检查，你头像上的圆点随即消失。
+github-menu-token-placeholder = github_pat_… 或 ghp_…

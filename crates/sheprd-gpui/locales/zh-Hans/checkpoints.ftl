@@ -1,0 +1,15 @@
+checkpoints-title = 检查点
+checkpoints-subtitle = { $workspace } · { $branch }
+checkpoints-restore-title = 恢复 { $age } 的“{ $label }”？
+checkpoints-restore-note = 此检出目录中的文件将恢复到当时的状态，{ $branch } 也会退回到当时所在的提交。之后新建的文件将被删除；被忽略的文件保持不变。
+checkpoints-undo-note = 当前状态会先保存为一个检查点，因此此操作可以撤销。
+checkpoints-agent-working = 此工作区中的智能体仍在工作，可能会继续修改文件。
+checkpoints-loading = 正在加载检查点...
+checkpoints-empty = 暂无检查点。此处的智能体每次开始或结束一个轮次时都会创建一个检查点。
+checkpoints-off = 没有检查点。设置 > 通用 中的“为智能体轮次创建检查点”已关闭。
+checkpoints-cancel = 取消
+checkpoints-close = 关闭
+checkpoints-restore = 恢复
+checkpoints-restoring = 正在恢复...
+checkpoints-files = { $count } 个文件
+checkpoints-yesterday = 昨天，{ $date }

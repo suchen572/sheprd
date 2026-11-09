@@ -31,6 +31,11 @@ validation/timing policy, and system-player selection are adapted from that
 revision, with bounded workers, native focus, and cancellation added. No upstream
 NOTICE or separate audio license was present; the root Apache-2.0 license applies.
 
+scripts/release/inno/ChineseSimplified.isl is an unmodified copy of Inno Setup's
+user-contributed Simplified Chinese messages (maintained by Zhenghan Yang), from
+https://github.com/jrsoftware/issrc at tag is-6_7_3,
+Files/Languages/Unofficial/ChineseSimplified.isl.
+
 The canonical paw in assets/icons/sheprd-avatar.svg and its derived application
 icons, platform catalogs, installer artwork, and social cards are original Sheprd
 artwork, licensed under Apache-2.0. assets/icons/README.md records their sources

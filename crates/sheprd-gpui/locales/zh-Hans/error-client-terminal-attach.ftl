@@ -1,0 +1,10 @@
+error-client-terminal-attach-busy = 等待中的终端滚动过多
+error-client-terminal-attach-ended = 终端附加已结束
+error-client-terminal-attach-io = 终端附加 I/O 失败
+error-client-terminal-attach-protocol = 终端附加分帧失败
+error-client-terminal-attach-refused = Herdr 拒绝了终端附加
+error-client-terminal-attach-refused-reason = Herdr 拒绝了终端附加：{ $reason }
+error-client-terminal-attach-rejected = Herdr 拒绝了终端握手（协议 { $version }）
+error-client-terminal-attach-scroll = 终端滚动至少要移动一行
+error-client-terminal-attach-size = 终端尺寸不能为零
+error-client-terminal-attach-unexpected = Herdr 对终端握手返回了意外的消息

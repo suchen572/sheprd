@@ -1,0 +1,10 @@
+shortcut-editor-save-failed = 无法保存键盘快捷键：{ $error }
+shortcut-editor-save = 保存
+shortcut-editor-unbind = 解除绑定
+shortcut-editor-reset = 重置
+shortcut-editor-title = 编辑 { $command }
+shortcut-editor-hint = 输入带修饰键的键名，例如 ctrl-shift-t；或输入 prefix- 加前缀之后的按键，例如 prefix-x。多个备选项用空格分隔。
+shortcut-editor-note = 保存会替换此命令的快捷键，包括守护进程和弦。重置会恢复继承的默认值。
+shortcut-editor-placeholder = 例如 { $example }
+shortcut-editor-cancel = 取消
+shortcut-editor-saving = 正在保存…

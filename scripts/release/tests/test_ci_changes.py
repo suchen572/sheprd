@@ -100,7 +100,7 @@ class WindowsPackageChanges(GitFixture):
     def test_windows_packaging_inputs_run_the_installer_check(self):
         for path in ("scripts/release/package-windows.py", "scripts/release/windows-installer.py",
                      "scripts/release/sheprd.iss", "scripts/release/installer/en-US.isl",
-                     "site/install.ps1",
+                     "scripts/release/inno/ChineseSimplified.isl", "site/install.ps1",
                      "crates/sheprd-launcher/src/main.rs", "crates/sheprd-gpui/windows_resource.rs",
                      "assets/icons/Sheprd.ico", "assets/icons/windows/wizard-128.png",
                      ".github/workflows/ci.yml"):

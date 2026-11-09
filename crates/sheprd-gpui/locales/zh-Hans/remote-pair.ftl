@@ -1,0 +1,57 @@
+remote-pair-title = 远程控制
+remote-pair-close = 关闭
+remote-pair-unavailable-here = 此窗口中无法使用远程控制。
+remote-pair-off = 远程控制已关闭。
+remote-pair-off-detail = 请在设置 > 远程控制中开启，以配对手机。
+remote-pair-open-settings = 打开设置
+remote-pair-approved = { $device } 现在可以控制你的聊天了。
+remote-pair-approved-detail = 可随时在设置 > 远程控制中撤销。
+remote-pair-done = 完成
+remote-pair-denied = 未配对。
+remote-pair-denied-detail = 该设备已被拒绝，其配对码已失效。
+remote-pair-expired = 来自 { $device } 的请求已过期。
+remote-pair-expired-detail = 未授予任何权限。请扫描新的配对码重试。
+remote-pair-new-code = 新配对码
+remote-pair-failed = 配对不可用。
+remote-pair-try-again = 重试
+remote-pair-unnamed = 一台设备
+
+remote-pair-scan = 用手机相机扫描
+remote-pair-choose-address = 选择手机连接此电脑的方式。按 Up/Down 切换二维码中的地址。
+remote-pair-countdown = { $seconds } 秒后更换配对码
+remote-pair-asking = 正在请求配对码…
+remote-pair-fingerprint = CA { $fingerprint }
+remote-pair-nearby-mac = 或在附近的 iPhone 上打开 Sheprd：它会通过蓝牙找到这台 Mac。
+remote-pair-nearby = 或在附近的 iPhone 上打开 Sheprd：它会通过蓝牙找到这台电脑。
+remote-pair-nearby-allow-mac = 要通过蓝牙就近配对，请在系统设置 > 隐私与安全性 > 蓝牙中允许 Sheprd。
+remote-pair-nearby-allow = 要通过蓝牙就近配对，请在系统设置中允许 Sheprd 使用蓝牙。
+remote-pair-get-app = 获取 iPhone 应用（Enter）
+
+remote-pair-wants = { $device } 请求远程控制你的聊天。
+remote-pair-app = 该请求来自安装自 { $app } 的 Sheprd 应用。仅当你要将这台电脑添加到该应用时才允许。
+remote-pair-same-code = 仅当手机显示相同的配对码时才允许。
+remote-pair-deny = 拒绝
+remote-pair-allow = 允许
+remote-pair-allowing = 正在允许…
+
+remote-pair-network-bridge = 网桥
+remote-pair-network-local = 局域网
+remote-pair-network-loopback = 仅限本机
+remote-pair-network-other = 网络地址
+remote-pair-network-tailscale = Tailscale
+remote-pair-hint-tailscale = 将两台设备连接到同一个 Tailscale 网络。在允许访问时可跨网络使用。
+remote-pair-hint-local = 同一局域网；网络隔离可能会阻止访问。
+remote-pair-hint-bridge = 本地网桥；未验证手机能否访问。
+remote-pair-hint-loopback = 只能在此电脑上访问，手机无法访问。
+remote-pair-hint-other = 手机能否访问取决于你的网络。
+remote-pair-no-interface = 接口不可用
+remote-pair-older-daemon = 网络标签需要更新后的远程控制守护进程。请在设置 > 远程控制中重启它，然后重新打开配对。
+remote-pair-recommended = 推荐
+remote-pair-qr-uses = 二维码使用 { $network }
+remote-pair-hide-addresses = 隐藏其他地址
+remote-pair-show-addresses = 显示其他地址
+remote-pair-other-addresses = 其他地址（{ $count }）
+remote-pair-address-selected = 已选择：{ $network } · { $interface } · { $address }
+remote-pair-address-use = 使用 { $network } · { $interface } · { $address }
+
+remote-pair-hosts = 同时与这些机器配对，以便在此电脑休眠时也能访问它们：

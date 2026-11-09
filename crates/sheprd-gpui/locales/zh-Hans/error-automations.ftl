@@ -1,0 +1,16 @@
+error-automations-approved = { $path } 已在 { $host } 上获得批准
+error-automations-failed = sheprd-automate：命令失败
+error-automations-json = sheprd-automate 输出了本应用无法读取的内容
+error-automations-missing = 此主机未安装 sheprd-automate
+error-automations-no-build = 本应用没有适用于 { $platform } 的 sheprd-automate 构建版本
+error-automations-no-script = { $host } 上没有自动化脚本 { $path }
+error-automations-not-read = 尚未读取 { $host }；请稍后重试
+error-automations-off = Sheprd 中已关闭自动化：设置 > 侧边栏 > 显示自动化
+error-automations-protocol = 此主机上的 sheprd-automate 使用报告协议 { $found }；本应用读取的是 { $expected }。请更新本应用。
+error-automations-refused = sheprd-automate：{ $error }
+error-automations-run = 无法运行 sheprd-automate：{ $error }
+error-automations-runs-active = 此主机上有自动化正在运行；请在其完成后再更新
+error-automations-unknown-host = 没有名为 { $host } 的已连接主机
+error-automations-unknown-version = 无法读取本应用附带的 sheprd-automate 的版本，因此无法安装
+error-automations-unsupported-host = 自动化无法访问此类主机
+error-automations-version = sheprd-automate：意外的版本输出：{ $output }

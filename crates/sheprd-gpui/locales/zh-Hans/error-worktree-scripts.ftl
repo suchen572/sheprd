@@ -1,0 +1,11 @@
+error-worktree-scripts-busy = 另一个工作树脚本仍在启动
+error-worktree-scripts-checkout = 守护进程未识别出此工作区的检出目录
+error-worktree-scripts-encoding = .herdr/worktree.toml 不是有效的 UTF-8
+error-worktree-scripts-not-git = 此工作区不是 Herdr 已知的 Git 检出目录
+error-worktree-scripts-nul = .herdr/worktree.toml 中的脚本不得包含 NUL 字节
+error-worktree-scripts-parse = .herdr/worktree.toml：{ $error }
+error-worktree-scripts-read = 无法读取 .herdr/worktree.toml：{ $error }
+error-worktree-scripts-remote = 无法读取主机上的 .herdr/worktree.toml：{ $error }
+error-worktree-scripts-response = 打开脚本的标签页时守护进程返回了意外响应
+error-worktree-scripts-size = .herdr/worktree.toml 超过 { $limit } 字节
+error-worktree-scripts-unsupported-host = 暂不支持从 WSL 发行版读取工作树脚本

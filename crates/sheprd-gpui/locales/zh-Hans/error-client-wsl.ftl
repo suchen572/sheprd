@@ -1,0 +1,13 @@
+error-client-wsl-catalog = 不支持的 WSL 设备列表版本、大小或条目
+error-client-wsl-catalog-schema = WSL 设备列表架构无效
+error-client-wsl-closed = WSL 桥接已关闭；请检查该发行版能否启动，以及其中是否已安装 Herdr
+error-client-wsl-command = wsl.exe 失败（{ $status }）
+error-client-wsl-host-exists = 此 WSL 发行版已经是一个设备
+error-client-wsl-host-missing = 此 WSL 发行版不是已保存的设备
+error-client-wsl-invalid-distro = WSL 发行版名称无效
+error-client-wsl-path-invalid = { $path } 不是 WSL 发行版可以映射的 Windows 绝对路径
+error-client-wsl-path-limit = WSL 发行版一次最多接受 256 个拖放的路径
+error-client-wsl-path-response = wslpath 返回了无效的应答
+error-client-wsl-path-unmapped = 无法从此 WSL 发行版访问 { $path }；只能访问其自身的文件和已挂载的驱动器
+error-client-wsl-timeout = WSL 未能及时应答；该发行版可能已停止或正在等待设置
+error-client-wsl-unsupported = WSL 发行版仅在 Windows 上可用

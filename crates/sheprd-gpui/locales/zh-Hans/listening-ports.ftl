@@ -1,0 +1,10 @@
+listening-ports-label = 监听端口
+listening-ports-listening = { $process } 正在监听 { $address }
+listening-ports-unnamed-listening = 一个进程正在监听 { $address }
+listening-ports-open = 打开 { $url }
+listening-ports-open-tunnel = 通过到 { $target } 的 SSH 隧道打开
+listening-ports-unreachable = 无法从此机器访问
+listening-ports-close-tunnel = 关闭到 { $target }:{ $port } 的 SSH 隧道
+listening-ports-tunnel-closed = 已关闭到 :{ $port } 的 SSH 隧道
+listening-ports-tunnel-opening = 到该端口的隧道已在打开中
+listening-ports-open-failed = 无法打开 :{ $port }：{ $error }

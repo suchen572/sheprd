@@ -1,0 +1,10 @@
+error-editor-busy = 编辑器仍在打开另一个文件
+error-editor-command = editor_command 最多 1024 字节，且不能包含引号、反斜杠或控制字符
+error-editor-no-pane = 没有可在旁边打开编辑器的本地窗格
+error-editor-path = 此路径无法安全地输入到 shell 中，因此将用默认应用打开
+error-editor-remote = 编辑器窗格中的 Neovim 没有应答
+error-editor-remote-busy = 编辑器窗格中的 Neovim 正忙：请先应答它，然后重试
+error-editor-remote-failed = 编辑器窗格中的 Neovim 无法打开此文件
+error-editor-remote-launch = 无法运行 nvim 来连接编辑器窗格
+error-editor-response = 打开编辑器窗格时，守护进程返回了意外的响应
+error-editor-unsupported = 打开终端编辑器需要窗格中有 Unix shell

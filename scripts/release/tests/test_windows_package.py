@@ -123,7 +123,8 @@ class InstallerTests(unittest.TestCase):
         # Inno Setup's own messages, which compiler:Default.isl and its translations define.
         used -= {"AdditionalIcons", "CreateDesktopIcon", "LaunchProgram"}
         self.assertIn("AddToPath", used)
-        listed = re.findall(r'^Name: "\w+"; MessagesFile: "compiler:[^,"]+,(installer\\[^"]+\.isl)"$',
+        # A wizard translation Inno Setup does not install comes from inno\ before the installer's text.
+        listed = re.findall(r'^Name: "\w+"; MessagesFile: "compiler:[^,"]+,(?:inno\\[^,"]+\.isl,)?(installer\\[^,"]+\.isl)"$',
                             script, re.MULTILINE)
         files = sorted(INSTALLER.SCRIPT.parent.glob("installer/*.isl"))
         self.assertEqual(sorted(name.replace("\\", "/") for name in listed),

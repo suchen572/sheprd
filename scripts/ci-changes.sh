@@ -46,7 +46,7 @@ code=$(changed \
   ':(exclude).github/workflows/site.yml')
 windows_package=$(changed \
   scripts/release/package-windows.py scripts/release/windows-installer.py \
-  scripts/release/sheprd.iss scripts/release/installer site/install.ps1 \
+  scripts/release/sheprd.iss scripts/release/installer scripts/release/inno site/install.ps1 \
   crates/sheprd-launcher crates/sheprd-gpui/src/main.rs \
   crates/sheprd-gpui/build.rs crates/sheprd-gpui/windows_resource.rs \
   assets/icons/Sheprd.ico assets/icons/Sheprd-worktree.ico assets/icons/windows \

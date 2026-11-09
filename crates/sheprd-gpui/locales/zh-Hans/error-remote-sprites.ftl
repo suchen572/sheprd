@@ -1,0 +1,16 @@
+error-remote-sprites-url = { $field } 必须使用 https（仅环回地址可用 http），且不能包含凭据、查询参数或片段。
+error-remote-sprites-missing-token = Sprites 需要 API 令牌。请在 设置 > 云设备 中保存一个。
+error-remote-sprites-authentication = Sprites 拒绝了此 API 令牌。
+error-remote-sprites-forbidden = Sprites 拒绝访问。请检查令牌所属的组织。
+error-remote-sprites-gone = sprite { $name } 已不存在。
+error-remote-sprites-status = Sprites 请求失败（HTTP { $code }）
+error-remote-sprites-status-message = Sprites 请求失败（HTTP { $code }）：{ $detail }
+error-remote-sprites-network = Sprites 网络请求失败或超时。
+error-remote-sprites-read = 无法在大小/时间限制内读取 Sprites 响应。
+error-remote-sprites-size = Sprites 响应超出大小限制。
+error-remote-sprites-json = Sprites JSON 响应无效。
+error-remote-sprites-header = Sprites 授权请求头无效。
+error-remote-sprites-output = 无法写入命令的输出。
+error-remote-sprites-executable = 找不到用于中转的此应用可执行文件。
+error-remote-sprites-cancelled = 已取消。
+error-remote-sprites-account = 此设备属于一个已不再配置于 [sprites] api_url 中的 Sprites 账户。

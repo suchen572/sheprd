@@ -71,6 +71,9 @@ fn negotiation_keeps_scripts_regions_and_the_callers_locales() {
         negotiate(&ids(&["zh-Hans-CN"]), &available),
         locale("zh-Hans")
     );
+    // A region alone, as Linux's zh_CN or Windows' zh-TW, implies its script.
+    assert_eq!(negotiate(&ids(&["zh-CN"]), &available), locale("zh-Hans"));
+    assert_eq!(negotiate(&ids(&["zh-TW"]), &available), locale("zh-Hant"));
     // A bare language takes a regional translation as a range.
     assert_eq!(negotiate(&ids(&["pt"]), &available), locale("pt-BR"));
     assert_eq!(negotiate(&ids(&["PT-br"]), &available), locale("pt-BR"));

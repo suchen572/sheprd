@@ -1,0 +1,19 @@
+usage-clawrouter-setting-api-key = ClawRouter 策略 API 密钥，在 https://clawrouter.openclaw.ai/dashboard/access 中创建。
+usage-clawrouter-setting-base-url = 可选，其他 ClawRouter 部署的 HTTPS 服务根 URL 或 /v1 URL。默认为 https://clawrouter.openclaw.ai。
+
+usage-clawrouter-routed-count = { $count } 个已路由的提供商
+usage-clawrouter-managed-budget = 托管月度预算
+usage-clawrouter-unmetered = 不计量
+usage-clawrouter-requests = 请求
+usage-clawrouter-request-counts = { $requests } · 成功 { $succeeded } · 失败 { $failed }
+usage-clawrouter-tokens = Token
+usage-clawrouter-token-counts = { $tokens } · 输入 { $input } · 输出 { $output }
+usage-clawrouter-actual-cost = 实际成本
+usage-clawrouter-budget-ledger = 预算账本
+usage-clawrouter-monthly-budget = 月度预算
+usage-clawrouter-budget-remaining = { $amount } · 剩余 { $remaining }
+usage-clawrouter-spent-this-month = 本月花费
+usage-clawrouter-routed-providers = 已路由的提供商
+usage-clawrouter-provider-usage = { $requests } 个请求 · { $cost } · { $tokens } Token
+usage-clawrouter-provider-cost = 提供商成本
+usage-clawrouter-unknown = 未知

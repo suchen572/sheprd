@@ -1,0 +1,23 @@
+usage-openrouter-setting-api-key = 来自 https://openrouter.ai/settings/keys 的 OpenRouter API 密钥（sk-or-v1-…）。Management API 密钥也可以使用，并会额外显示最近 30 天的活动。
+usage-openrouter-setting-management-api-key = 可选的 Management API 密钥，来自 https://openrouter.ai/settings/management-keys，仅用于读取账户最近 30 天的活动。
+usage-openrouter-setting-base-url = 用于代理的可选 HTTPS API URL。默认为 https://openrouter.ai/api/v1。
+usage-openrouter-setting-http-referer = 可选的客户端 URL，作为 HTTP-Referer 请求头发送。
+usage-openrouter-setting-x-title = 可选的客户端标题，作为 X-Title 请求头发送。默认为 Sheprd。
+
+usage-openrouter-credits = 额度
+usage-openrouter-free-tier = 免费层级
+usage-openrouter-last-30-days = 最近 30 天
+usage-openrouter-spend = 花费
+usage-openrouter-requests = 请求数
+usage-openrouter-tokens = Token 数
+usage-openrouter-models = 模型数
+usage-openrouter-api-key-limit = API 密钥限额
+usage-openrouter-spending-cap = 花费上限
+usage-openrouter-no-limit = 未配置限额
+usage-openrouter-cap-remaining = 上限剩余
+usage-openrouter-key-used = 密钥已用
+usage-openrouter-reset-window = 重置周期
+usage-openrouter-today = 今天
+usage-openrouter-this-week = 本周
+usage-openrouter-this-month = 本月
+usage-openrouter-api-key = API 密钥

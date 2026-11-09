@@ -1,0 +1,19 @@
+error-keymap-chord-without-key = keybindings.{ $command }：prefix- 需要在前缀之后输入的键
+error-keymap-duplicate-keystroke = keybindings：{ $keystroke } 同时绑定到了 { $first } 和 { $second }
+error-keymap-duplicate-pane-key = pane_keys：{ $keystroke } 列出了两次
+error-keymap-empty-pane-key-text = pane_keys.{ $keystroke }：text: 需要有要发送的内容
+error-keymap-invalid-keystroke = keybindings.{ $command }：无效的按键 { $keystroke }
+error-keymap-invalid-pane-key = pane_keys：无效的按键 { $keystroke }
+error-keymap-keystroke-without-modifier = keybindings.{ $command }：{ $keystroke } 需要 cmd、ctrl、alt 或 fn 修饰键，这样输入的内容仍能到达终端
+error-keymap-pane-key-bound = pane_keys：{ $keystroke } 也绑定到了 keybindings.{ $command }
+error-keymap-pane-key-text-too-long = pane_keys.{ $keystroke }：文本最多 { $limit } 字节
+error-keymap-pane-key-without-modifier = pane_keys：{ $keystroke } 需要 cmd、ctrl、alt 或 fn 修饰键，这样输入的内容仍能到达终端
+error-keymap-too-many-keystrokes = keybindings.{ $command } 最多只能列出 8 个按键
+error-keymap-too-many-pane-keys = pane_keys 最多只能列出 { $limit } 个按键
+error-keymap-unknown-keybinding = keybindings.{ $command } 不是命令；请参阅 config-gpui.toml 中的 keybindings 列表
+error-keymap-unsendable-pane-key = pane_keys.{ $from }：窗格无法接收 { $to }
+
+error-keymap-daemon-missing = 主机未发布其键绑定
+error-keymap-daemon-no-keys = 主机的键绑定没有 [keys] 表
+error-keymap-daemon-parse = 主机的键绑定不是有效的 TOML：{ $error }
+error-keymap-daemon-too-large = 主机的键绑定超过 { $max } 字节

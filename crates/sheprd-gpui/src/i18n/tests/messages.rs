@@ -28,15 +28,17 @@ fn numbered_commands_say_their_number_in_english_without_isolation() {
 }
 
 /// The build script refuses files that do not parse; what it embeds is
-/// every English file, and the table `fl!` searches is sorted.
+/// every language's files, English first among the languages, and the
+/// table `fl!` searches is sorted.
 #[test]
-fn the_embedded_files_are_the_english_ones_and_the_table_is_sorted() {
+fn the_embedded_files_are_every_languages_and_the_table_is_sorted() {
     assert!(
         FILES
             .iter()
             .any(|file| file.language == "en-US" && file.feature == "commands")
     );
-    assert!(FILES.iter().all(|file| file.language == "en-US"));
     assert!(MESSAGES.windows(2).all(|pair| pair[0].0 < pair[1].0));
-    assert_eq!(available(), vec![Locale::FALLBACK]);
+    let available = available();
+    assert_eq!(available.first(), Some(&Locale::FALLBACK));
+    assert!(available.contains(&"zh-Hans".parse().unwrap()));
 }

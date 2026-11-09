@@ -1,0 +1,2 @@
+usage-qwencloud-setting-cookie = 你的 Qwen Cloud 控制台会话。在 https://home.qwencloud.com/billing/subscription/token-plan-individual 登录，打开开发者工具 > Application > Cookies > https://home.qwencloud.com，复制登录票据（login_qwencloud_ticket 或 login_aliyunid_ticket）以及 login_aliyunid_csrf 和 cna。按 "name=value; name2=value2" 格式粘贴，或从 Network 面板复制 data/api.json 请求的完整 Cookie 请求头。
+usage-qwencloud-setting-sec-token = 可选。无法从 /tool/user/info.json 读取时使用的控制台 sec_token：即开发者工具 > Network 中 Token Plan 页面上 data/api.json 请求的 sec_token 表单字段。

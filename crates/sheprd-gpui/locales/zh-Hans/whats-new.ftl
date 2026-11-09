@@ -1,0 +1,9 @@
+whats-new-update-ready = 更新已就绪：Sheprd { $version }
+whats-new-title = Sheprd { $version } 新功能
+whats-new-unavailable = 版本说明不可用
+whats-new-suggested-command = 建议命令（请自行审查并运行）：
+whats-new-no-command = 守护进程未提供安装命令。
+whats-new-nothing-runs = 此面板不会安装或执行任何内容。
+whats-new-notes-for = { $version } 版本说明
+whats-new-close = 关闭
+whats-new-dismiss-failed = 版本说明：{ $error }
