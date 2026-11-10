@@ -89,7 +89,8 @@ jobs:
       - name: Merge the branch onto main
         run: |
           git config merge.cargo-lock.driver "bash scripts/git/merge-cargo-lock.sh %O %A %B"
-          git merge --no-ff --no-commit "$BRANCH_SHA"
+          # The runner has no identity, and git wants one even without a commit.
+          git -c user.name=github-actions -c "user.email=41898282+github-actions[bot]@users.noreply.github.com" merge --no-ff --no-commit "$BRANCH_SHA"
           cargo metadata --format-version 1 >/dev/null
       - name: Install GPUI build dependencies
         run: bash scripts/install-linux-deps.sh
@@ -138,7 +139,8 @@ jobs:
       - name: Merge the branch onto main
         run: |
           git config merge.cargo-lock.driver "bash scripts/git/merge-cargo-lock.sh %O %A %B"
-          git merge --no-ff --no-commit "$BRANCH_SHA"
+          # The runner has no identity, and git wants one even without a commit.
+          git -c user.name=github-actions -c "user.email=41898282+github-actions[bot]@users.noreply.github.com" merge --no-ff --no-commit "$BRANCH_SHA"
           cargo metadata --format-version 1 >/dev/null
       - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2
       - run: cargo build --locked --release -p sheprd-gpui -p sheprd-launcher -p sheprd-acp -p sheprd-remote-control -p sheprd-automate -p sheprd-nearby --target "$TARGET"
