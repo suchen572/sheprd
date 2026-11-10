@@ -1,0 +1,195 @@
+name: Fork build
+
+# This fork only: sync main with sheprd-labs/sheprd, merge BRANCH onto it, and
+# publish unsigned Linux and Windows builds as a release. The build steps are
+# release.yml's, without signing, attestation, or the updater key.
+on:
+  schedule:
+    - cron: '23 */6 * * *'
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: fork-build
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  # The branch merged onto upstream main for every build.
+  BRANCH: feat/i18n-zh-hans
+
+jobs:
+  prepare:
+    name: Sync main and plan
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    outputs:
+      branch_sha: ${{ steps.plan.outputs.branch_sha }}
+      build: ${{ steps.plan.outputs.build }}
+      main_sha: ${{ steps.plan.outputs.main_sha }}
+      version: ${{ steps.plan.outputs.version }}
+    steps:
+      - id: plan
+        env:
+          # A fine-grained token for this repository with Contents and
+          # Workflows write: GITHUB_TOKEN may not push upstream's workflow edits.
+          GH_TOKEN: ${{ secrets.SYNC_TOKEN }}
+          EVENT: ${{ github.event_name }}
+        run: |
+          set -euo pipefail
+          repo=$GITHUB_REPOSITORY
+          gh api -X POST "repos/$repo/merge-upstream" -f branch=main --jq '"main: " + .message'
+          main_sha=$(gh api "repos/$repo/git/ref/heads/main" --jq .object.sha)
+          branch_sha=$(gh api "repos/$repo/git/ref/heads/$BRANCH" --jq .object.sha)
+          # publish writes this same line into the release notes.
+          source="main $main_sha + $BRANCH $branch_sha"
+          last=$(gh api "repos/$repo/releases?per_page=1" --jq '.[0].body // ""')
+          build=true
+          if [[ $EVENT == schedule && $last == *"$source"* ]]; then build=false; fi
+          {
+            echo "branch_sha=$branch_sha"
+            echo "build=$build"
+            echo "main_sha=$main_sha"
+            # The packaging scripts require YYYYMMDD.COUNTER.
+            echo "version=$(date -u +%Y%m%d).$GITHUB_RUN_NUMBER"
+          } >> "$GITHUB_OUTPUT"
+          echo "$source, build=$build"
+
+  linux:
+    name: Linux (x86_64)
+    needs: prepare
+    if: needs.prepare.outputs.build == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    permissions:
+      contents: read
+    env:
+      BRANCH_SHA: ${{ needs.prepare.outputs.branch_sha }}
+      # No HERDR_UPDATE_PUBLIC_KEY: the in-app updater stays off, so it never
+      # replaces this build with an upstream release.
+      HERDR_RELEASE_VERSION: ${{ needs.prepare.outputs.version }}
+      TARGET: x86_64-unknown-linux-gnu
+      VERSION: ${{ needs.prepare.outputs.version }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ needs.prepare.outputs.main_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - run: rustup show
+      # The repository's Cargo.lock driver keeps one side of a lockfile
+      # conflict; cargo metadata then rebuilds it from the merged manifests.
+      # Any other conflict fails the build.
+      - name: Merge the branch onto main
+        run: |
+          git config merge.cargo-lock.driver "bash scripts/git/merge-cargo-lock.sh %O %A %B"
+          git merge --no-ff --no-commit "$BRANCH_SHA"
+          cargo metadata --format-version 1 >/dev/null
+      - name: Install GPUI build dependencies
+        run: bash scripts/install-linux-deps.sh
+      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2
+      - run: cargo build --locked --release -p sheprd-gpui -p sheprd-acp -p sheprd-remote-control -p sheprd-automate -p sheprd-nearby --target "$TARGET"
+      - run: python3 scripts/release/fetch-herdr-core.py "$TARGET" "target/$TARGET/release"
+      - run: python3 scripts/release/smoke-cli.py "target/$TARGET/release/sheprd"
+      - name: Install the notice generator
+        uses: taiki-e/install-action@1e29709c0ec63babbe8f266397a465f29a825f91 # v2.87.31
+        with:
+          tool: cargo-about@0.9.2
+          fallback: none
+      - run: python3 scripts/release/generate-notices.py "target/$TARGET/release/THIRD-PARTY-NOTICES.txt"
+      - name: Package Linux executable
+        run: |
+          mkdir dist
+          bash scripts/release/package-linux.sh "$VERSION" "$TARGET" "target/$TARGET/release/sheprd" dist "target/$TARGET/release/THIRD-PARTY-NOTICES.txt"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: linux
+          path: dist/*.tar.gz
+          if-no-files-found: error
+          retention-days: 7
+
+  windows:
+    name: Windows (x86_64)
+    needs: prepare
+    if: needs.prepare.outputs.build == 'true'
+    runs-on: windows-2025
+    timeout-minutes: 90
+    permissions:
+      contents: read
+    env:
+      BRANCH_SHA: ${{ needs.prepare.outputs.branch_sha }}
+      # No HERDR_UPDATE_PUBLIC_KEY or HERDR_WINDOWS_SIGNER: unsigned, updater off.
+      HERDR_RELEASE_VERSION: ${{ needs.prepare.outputs.version }}
+      TARGET: x86_64-pc-windows-msvc
+      VERSION: ${{ needs.prepare.outputs.version }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ needs.prepare.outputs.main_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - run: rustup show
+      - name: Merge the branch onto main
+        run: |
+          git config merge.cargo-lock.driver "bash scripts/git/merge-cargo-lock.sh %O %A %B"
+          git merge --no-ff --no-commit "$BRANCH_SHA"
+          cargo metadata --format-version 1 >/dev/null
+      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2
+      - run: cargo build --locked --release -p sheprd-gpui -p sheprd-launcher -p sheprd-acp -p sheprd-remote-control -p sheprd-automate -p sheprd-nearby --target "$TARGET"
+      # The Windows image provides `python`, not `python3`.
+      - run: python scripts/release/fetch-herdr-core.py "$TARGET" "target/$TARGET/release"
+      - run: python scripts/release/smoke-cli.py "target/$TARGET/release/sheprd.exe"
+      - name: Install the notice generator
+        uses: taiki-e/install-action@1e29709c0ec63babbe8f266397a465f29a825f91 # v2.87.31
+        with:
+          tool: cargo-about@0.9.2
+          fallback: none
+      - run: python scripts/release/generate-notices.py "target/$TARGET/release/THIRD-PARTY-NOTICES.txt"
+      - name: Package Windows executable
+        run: |
+          mkdir dist
+          python scripts/release/package-windows.py "$VERSION" "$TARGET" "target/$TARGET/release/sheprd.exe" "target/$TARGET/release/sheprd-launcher.exe" dist "target/$TARGET/release/THIRD-PARTY-NOTICES.txt"
+      - name: Install the pinned Inno Setup compiler
+        run: python scripts/release/windows-installer.py install-iscc "$RUNNER_TEMP/inno-setup" > "$RUNNER_TEMP/iscc-path"
+      - name: Build the Windows installer
+        run: python scripts/release/windows-installer.py build "$VERSION" "$TARGET" "dist/Sheprd-$VERSION-$TARGET.zip" dist "$(cat "$RUNNER_TEMP/iscc-path")"
+      - name: Install and uninstall the Windows installer
+        run: python scripts/release/windows-installer.py smoke "dist/Sheprd-$VERSION-$TARGET-setup.exe"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: windows
+          path: |
+            dist/*.zip
+            dist/*-setup.exe
+          if-no-files-found: error
+          retention-days: 7
+
+  publish:
+    name: Publish release
+    needs: [prepare, linux, windows]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    env:
+      BRANCH_SHA: ${{ needs.prepare.outputs.branch_sha }}
+      GH_TOKEN: ${{ github.token }}
+      MAIN_SHA: ${{ needs.prepare.outputs.main_sha }}
+      VERSION: ${{ needs.prepare.outputs.version }}
+    steps:
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          path: dist
+          merge-multiple: true
+      # A fork- tag, so these never pass for upstream's vYYYYMMDD.N releases.
+      # The tag marks main; the merged commit itself is never pushed.
+      - run: |
+          gh release create "fork-$VERSION" dist/* --repo "$GITHUB_REPOSITORY" --target "$MAIN_SHA" \
+            --title "Sheprd $VERSION ($BRANCH)" \
+            --notes "Unofficial, unsigned build of main $MAIN_SHA + $BRANCH $BRANCH_SHA. In-app updates are off."
